@@ -13,7 +13,7 @@
 
 <title>Planterne på HV8</title>
 
-<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
@@ -149,11 +149,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -1267,7 +1271,8 @@ Så / Blomst / Høst
 </div>
 <div class="figure">
 <img src="photos/IMG_5547.jpeg" width="700" alt="" />
-<p class="caption">Naboens Hassel, - her kan vi se hvor højt den bliver. (© ML) (IMG_5547.jpeg)</p>
+<p class="caption">Naboens Hassel, - her kan vi se hvor højt den bliver.
+(© ML) (IMG_5547.jpeg)</p>
 </div>
 <div class="figure">
 <img src="photos/IMG_5603.jpeg" width="700" alt="" />
@@ -1449,7 +1454,8 @@ Så / Blomst / Høst
 </table>
 <div class="figure">
 <img src="photos/IMG_5495.jpeg" width="700" alt="" />
-<p class="caption">De to kastanjer har en syfdom, hvilken? (© ML) (IMG_5495.jpeg)</p>
+<p class="caption">De to kastanjer har en sygdom, hvilken? (© ML)
+(IMG_5495.jpeg)</p>
 </div>
 <p><a href="#">Back to top</a></p>
 </div>
@@ -1567,7 +1573,15 @@ Så / Blomst / Høst
 </table>
 <div class="figure">
 <img src="photos/IMG_5484.jpeg" width="700" alt="" />
-<p class="caption">Tekst til foto (© ML) (IMG_5484.jpeg)</p>
+<p class="caption">Dato: 11. juni 2022 (© ML) (IMG_5484.jpeg)</p>
+</div>
+<div class="figure">
+<img src="photos/IMG_6176.jpeg" width="700" alt="" />
+<p class="caption">Dato: 11. august 2022 (© ML) (IMG_6176.jpeg)</p>
+</div>
+<div class="figure">
+<img src="photos/IMG_6177.jpeg" width="700" alt="" />
+<p class="caption">Dato: 11. august 2022 (© ML) (IMG_6177.jpeg)</p>
 </div>
 <p><a href="#">Back to top</a></p>
 </div>
@@ -1744,7 +1758,15 @@ Så / Blomst / Høst
 </table>
 <div class="figure">
 <img src="photos/IMG_5485.jpeg" width="700" alt="" />
-<p class="caption">Tekst til foto (© ML) (IMG_5485.jpeg)</p>
+<p class="caption">Dato: 11. juni 2022 (© ML) (IMG_5485.jpeg)</p>
+</div>
+<div class="figure">
+<img src="photos/IMG_6178.jpeg" width="700" alt="" />
+<p class="caption">Dato: 11. august 2022 (© ML) (IMG_6178.jpeg)</p>
+</div>
+<div class="figure">
+<img src="photos/IMG_6180.jpeg" width="700" alt="" />
+<p class="caption">Dato: 11. august 2022 (© ML) (IMG_6180.jpeg)</p>
 </div>
 <p><a href="#">Back to top</a></p>
 </div>
